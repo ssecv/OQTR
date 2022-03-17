@@ -22,7 +22,7 @@ class Transformer(nn.Module):
                  num_decoder_layers=6, dim_feedforward=2048, dropout=0.1,
                  activation="relu", normalize_before=False,
                  return_intermediate_dec=False, saliency_query=False,
-                 num_queries=20):
+                 num_queries=20, device='cuda'):
         super().__init__()
 
         encoder_layer = TransformerEncoderLayer(d_model, nhead, dim_feedforward,
@@ -37,7 +37,7 @@ class Transformer(nn.Module):
                                           return_intermediate=return_intermediate_dec)
 
         self.saliency_query = saliency_query
-        self.tgt_prior = object_biased_gaussian(d_model, num_queries) if saliency_query else None
+        self.tgt_prior = object_biased_gaussian(d_model, num_queries).to(device) if saliency_query else None
         self._reset_parameters()
 
         self.d_model = d_model
@@ -354,6 +354,7 @@ def build_transformer(args):
         return_intermediate_dec=True,
         saliency_query=args.saliency_query,
         num_queries=args.num_queries,
+        device=args.device
     )
 
 

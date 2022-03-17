@@ -323,7 +323,7 @@ def build(args):
         num_classes = 20
 
     backbone = build_backbone(args)
-
+    device = torch.device(args.device)
     transformer = build_transformer(args)
 
     model = DETR(
@@ -351,6 +351,9 @@ def build(args):
     losses = ['labels', 'boxes', 'cardinality']
     if args.masks:
         losses += ["masks"]
+    criterion = SetCriterion(num_classes, matcher=matcher, weight_dict=weight_dict,
+                             eos_coef=args.eos_coef, losses=losses)
+    criterion.to(device)
 
     postprocessors = {'bbox': PostProcess()}
     if args.masks:
@@ -361,4 +364,4 @@ def build(args):
         if args.dataset_file == 'sis':
             postprocessors['sis'] = VisualizeSIS()
 
-    return model, postprocessors
+    return model, criterion, postprocessors

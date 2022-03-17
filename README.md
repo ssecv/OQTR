@@ -4,7 +4,7 @@ Official implementation of TMM2022 "Transformer-based Efﬁcient Salient Instanc
 
 ## Environment preparation
 
-The code is tested on CUDA 10.1 and pytorch 1.8.0, specify the versions below to your desired ones.
+The code is tested on CUDA 10.1 and pytorch 1.6.0, specify the versions below to your desired ones.
 
 ```shell
 conda create -n oqtr python=3.8 -y
@@ -21,11 +21,22 @@ Revise `build_sis` function in `datasets/coco.py`.
 
 ## Run model
 
+run demo
+
 ```shell
 Python visualize.py --input {INPUT_IMG} --output {OUTPUT_DIR}
 ```
 
 Please replace {INPUT_IMG} to you input image path and {OUTPUT_DIR} to your output path.
+
+run evaluation
+
+```shell
+python eval.py --no_aux_loss --masks --coco_path {PATH_TO_COCO} \
+  --dataset_file sis --saliency_query --resume {WEIGHT_PATH}
+```
+
+Please replace {PATH_TO_COCO} with the dir of your coco-style dataset and {WEIGHT_PATH} for the model weights.
 
 ## Resources
 

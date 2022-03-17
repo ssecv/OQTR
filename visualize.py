@@ -7,7 +7,6 @@ from run_utils import *
 parser = argparse.ArgumentParser('running script', parents=[get_args_parser()])
 parser.add_argument('--input', required=True, type=str, help='input image')
 parser.add_argument('--output', required=False, type=str, default='./', help='output path')
-parser.add_argument('--box', action='store_true', help='visual box result')
 args = parser.parse_args()
 args.num_queries = 10
 args.slim = True
@@ -23,7 +22,7 @@ torch.manual_seed(seed)
 np.random.seed(seed)
 random.seed(seed)
 
-model_without_ddp, postprocessor = build_model(args)
+model_without_ddp, _, postprocessor = build_model(args)
 model_without_ddp.to(device)
 model_without_ddp.eval()
 
@@ -38,7 +37,7 @@ res = model_without_ddp.load_state_dict(checkpoint['model'])
 print(res)
 
 
-def eval_single_image(image_path, out_dir, visualize_type='seg'):
+def eval_single_image(image_path, out_dir):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
@@ -47,7 +46,7 @@ def eval_single_image(image_path, out_dir, visualize_type='seg'):
         im = im.convert('RGB')
     scores, boxes, seg = detect(im, model_without_ddp, transform, postprocessor,
                                 device=device, masks=args.masks)
-    if visualize_type == 'seg':
+    if args.visualize_type == 'seg':
         save_segmentation(image_path, seg, out_dir)
     else:
         if args.visualize_type == 'box':
@@ -57,5 +56,4 @@ def eval_single_image(image_path, out_dir, visualize_type='seg'):
 
 
 if __name__ == '__main__':
-    vis_type = 'box' if args.box else 'seg'
-    eval_single_image(args.input, args.output, vis_type)
+    eval_single_image(args.input, args.output_dir)
