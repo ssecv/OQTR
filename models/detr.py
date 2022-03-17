@@ -325,6 +325,8 @@ def build(args):
     backbone = build_backbone(args)
     device = torch.device(args.device)
     transformer = build_transformer(args)
+    if args.slim:
+        args.num_queries = 10
 
     model = DETR(
         backbone,
