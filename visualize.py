@@ -6,9 +6,8 @@ from run_utils import *
 
 parser = argparse.ArgumentParser('running script', parents=[get_args_parser()])
 parser.add_argument('--input', required=True, type=str, help='input image')
-parser.add_argument('--output', required=False, type=str, default='./', help='output path')
 args = parser.parse_args()
-args.num_queries = 10
+args.num_queries = 20
 args.slim = True
 args.dataset_file = 'sis'
 args.no_aux_loss = True
@@ -32,7 +31,7 @@ transform = T.Compose([
     T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
 
-checkpoint = torch.load("oqtr_r50.pth", map_location='cpu')
+checkpoint = torch.load(args.resume, map_location='cpu')
 res = model_without_ddp.load_state_dict(checkpoint['model'])
 print(res)
 
