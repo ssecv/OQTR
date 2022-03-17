@@ -8,7 +8,6 @@ parser = argparse.ArgumentParser('running script', parents=[get_args_parser()])
 parser.add_argument('--input', required=True, type=str, help='input image')
 args = parser.parse_args()
 args.num_queries = 20
-args.slim = True
 args.dataset_file = 'sis'
 args.no_aux_loss = True
 args.masks = True
