@@ -43,8 +43,8 @@ Please replace {PATH_TO_COCO} with the dir of your coco-style dataset and {WEIGH
 ## Resources
 
 - OQTR-R50
-  - [standard](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50.pth)
-  - [slim](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50_slim.pth)
+  - [standard](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50_n20_ilso.pth)
+  - [slim](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50.pth)
 - SIS10K
   - [Baidu Disk](https://pan.baidu.com/s/1ZOQAj0Lhg1K4Vi3eS5Tw6w) Verification code: hust
   - [Google Disk]() Coming soon
