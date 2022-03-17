@@ -1,0 +1,4 @@
+cython
+git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI&egg=pycocotools
+scipy
+opencv-python
