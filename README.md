@@ -24,10 +24,12 @@ Revise `build_sis` function in `datasets/coco.py`.
 run demo
 
 ```shell
-Python visualize.py --input {INPUT_IMG} --output {OUTPUT_DIR}
+python visualize.py --input {INPUT_IMG} --output_dir {OUTPUT_DIR} --resume {WEIGHT_PATH}
 ```
 
-Please replace {INPUT_IMG} to you input image path and {OUTPUT_DIR} to your output path.
+- {INPUT_IMG} :input image path 
+- {OUTPUT_DIR}: output path
+- {WEIGHT_PATH}: model weights
 
 run evaluation
 
