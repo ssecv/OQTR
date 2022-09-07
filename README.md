@@ -21,6 +21,13 @@ pip install -r requirements.txt
 
 Revise `build_sis` function in `datasets/coco.py`.
 
+### Downroad the SIS10K dataset
+
+- **SIS10K**
+  - [Baidu Disk](https://pan.baidu.com/s/1ZOQAj0Lhg1K4Vi3eS5Tw6w) Verification code: hust
+  - [Google Disk](https://drive.google.com/file/d/15MKRMWNe8OPteC4u1N-Y7d4kA3bqS5DN/view?usp=sharing) 
+ **Json files:** [Baidu](https://pan.baidu.com/s/1BUns3DJ_HnTC_Q_9gi4Npg ) Verification code: hust / [Google](https://drive.google.com/drive/folders/1mUf7r9GScw4L-9H9pSGkdC6x7WSf1bf9?usp=sharing)
+
 ## Run model
 
 run demo
@@ -47,9 +54,6 @@ Please replace {PATH_TO_COCO} with the dir of your coco-style dataset and {WEIGH
 - OQTR-R50
   - [standard](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50_n20_ilso.pth)
   - [slim](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50.pth)
-- SIS10K
-  - [Baidu Disk](https://pan.baidu.com/s/1ZOQAj0Lhg1K4Vi3eS5Tw6w) Verification code: hust
-  - [Google Disk]() Coming soon
 
 ## Citation
 ```BibTeX
