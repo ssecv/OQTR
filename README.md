@@ -55,6 +55,8 @@ python -m torch.distributed.launch --nproc_per_node=2 --use_env main.py \
         --saliency_query
 ```
 
+
+
 run evaluation
 
 ```shell
@@ -67,6 +69,7 @@ Please replace {PATH_TO_COCO} with the dir of your coco-style dataset and {WEIGH
 ## Resources
 
 - OQTR-R50
+  - [pretrained weights](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50.pth)
   - [standard](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50_n20_ilso.pth)
   - [slim](https://github.com/ssecv/OQTR/releases/download/v1.0.0/oqtr_r50.pth)
 
