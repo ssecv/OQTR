@@ -1,6 +1,6 @@
 # Transformer-based Efﬁcient Salient Instance Segmentation Networks with Orientative Query. TMM, 2022.
 
- <img src="docs/OQTR.png"  height=1000 width=800>
+!<img src="docs/OQTR.png"  height=500 width=300>
  
 Official implementation of TMM2022 "Transformer-based Efﬁcient Salient Instance Segmentation Networks with Orientative Query"
 
