@@ -43,6 +43,18 @@ python visualize.py --input {INPUT_IMG} --output_dir {OUTPUT_DIR} --resume {WEIG
 - {OUTPUT_DIR}: output path
 - {WEIGHT_PATH}: model weights
 
+run training
+
+```shell
+python -m torch.distributed.launch --nproc_per_node=2 --use_env main.py \
+        --masks --dataset_file sis \
+        --epochs {EPOCHS} --lr_drop {DROP} --num_queries {NUM_QUERIES} --lr {LR} --batch_size {BATCH_SIZE} \
+        --coco_path {PATH_TO_COCO} \
+        --resume {PRETRAIN_PATH} \
+        --output_dir {OUTPUT_DIR} \
+        --saliency_query
+```
+
 run evaluation
 
 ```shell
