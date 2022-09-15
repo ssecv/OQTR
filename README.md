@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 Revise `build_sis` function in `datasets/coco.py`.
 
-### Downroad the SIS10K dataset
+### Download the SIS10K dataset
 
 - **SIS10K**
   - [Baidu Disk](https://pan.baidu.com/s/1ZOQAj0Lhg1K4Vi3eS5Tw6w) Verification code: hust
